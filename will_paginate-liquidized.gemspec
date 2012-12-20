@@ -4,11 +4,11 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.name        = "will_paginate-liquidized"
   s.version     = "1.0.0"
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of WillPaginateLiquidized."
-  s.description = "TODO: Description of WillPaginateLiquidized."
+  s.authors     = ["Jose Antonio Silva Portell"]
+  s.email       = ["jsilva@modyo.com"]
+  s.homepage    = "www.modyo.com"
+  s.summary     = "WillPaginate for Liquid templates"
+  s.description = "WillPaginate for Liquid Templates"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
