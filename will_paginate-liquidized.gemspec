@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = "1.0.0"
   s.authors     = ["Jose Antonio Silva Portell"]
   s.email       = ["jsilva@modyo.com"]
-  s.homepage    = "www.modyo.com"
+  s.homepage    = "http://www.modyo.com"
   s.summary     = "WillPaginate for Liquid templates"
   s.description = "WillPaginate for Liquid Templates"
 
