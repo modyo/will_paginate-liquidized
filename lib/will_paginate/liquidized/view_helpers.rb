@@ -17,6 +17,19 @@ module WillPaginate::Liquidized
       end
     end
 
+    def pagination_links_remote(collection, anchor = nil, prev_label = nil, next_label = nil)
+      opts = {}
+      opts[:previous_label] = "&laquo;"
+      opts[:next_label]     = "&raquo;"
+      opts[:params]         = {:anchor => anchor} if anchor
+      opts[:controller]     = @context.registers[:controller]
+      opts[:remote]     = true
+
+      with_renderer 'WillPaginate::Liquidized::LinkRenderer' do
+        will_paginate_original *[collection, opts].compact
+      end
+    end
+
     def with_renderer(renderer)
       old_renderer, options[:renderer] = options[:renderer], renderer
       result = yield
@@ -50,6 +63,7 @@ module WillPaginate::Liquidized
         target = url(target)
       end
       attributes[:href] = target
+      attributes[:'data-remote'] = true if @options[:remote].present? && @options[:remote]
       tag(:a, text, attributes)
     end
 
