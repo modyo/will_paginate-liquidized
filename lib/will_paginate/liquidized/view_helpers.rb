@@ -4,6 +4,7 @@ module WillPaginate::Liquidized
     include WillPaginate::ViewHelpers
 
     alias_method :will_paginate_original, :will_paginate
+    alias_method :page_entries_info_original, :page_entries_info
 
     def pagination_links(collection, anchor = nil, prev_label = nil, next_label = nil)
       opts = {}
@@ -27,6 +28,18 @@ module WillPaginate::Liquidized
 
       with_renderer 'WillPaginate::Liquidized::LinkRenderer' do
         will_paginate_original *[collection, opts].compact
+      end
+    end
+
+    def page_entries_info_liquid(collection, model_name = nil)
+      opts = {}
+      opts[:previous_label] = "&laquo;"
+      opts[:next_label]     = "&raquo;"
+      opts[:controller]     = @context.registers[:controller]
+      opts[:model]          = model_name
+
+      with_renderer 'WillPaginate::Liquidized::LinkRenderer' do
+        page_entries_info_original *[collection, opts].compact
       end
     end
 
